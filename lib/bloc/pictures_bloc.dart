@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:image_super_list/model/pictures_model.dart';
 import 'package:image_super_list/repository/pictures_repository.dart';
 
@@ -48,9 +47,10 @@ class PicturesBloc {
     _sinkPictures.add(_picturesModel);
   }
 
-  void addItemsToPictures(int page) async {
+  void addItemsToPictures() async {
+    int page = Random().nextInt(99) + 1;
     List<PicturesModel> list = await _repository.fetchPictures(page, 10);
-    print("PictureBloc: addItemsTolistData : ${list[0].getDounload_url}");
+    print("PictureBloc: addItemsTolistData : ${list[0].getDounload_url} page : $page ");
 
     _picturesModel = _picturesModel + list;
     _sinkPictures.add(_picturesModel);

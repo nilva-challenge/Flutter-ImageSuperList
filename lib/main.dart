@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if (_controller.position.pixels == _controller.position.maxScrollExtent) {
         print('end');
         progress = false;
-        _bloc.addItemsToPictures(2);
+        _bloc.addItemsToPictures();
 
         if (_controller.position.pixels == 0.0) {
           print('first');
